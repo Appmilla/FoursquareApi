@@ -3,3 +3,5 @@
 ################################################################################
 
 /FoursquareApi.Client/bin
+/FoursquareApi.Client/obj
+/.vs/FoursquareApi/DesignTimeBuild
