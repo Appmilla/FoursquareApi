@@ -6,6 +6,7 @@
     <Description>Api contract models for Foursquare Places Api</Description>
     <PackageProjectUrl>https://dev.azure.com/appmilla/FindAndExplore</PackageProjectUrl>
     <RepositoryUrl>https://pkgs.dev.azure.com/appmilla/FindAndExplore/_packaging/FindAndExplore/nuget/v3/index.json</RepositoryUrl>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

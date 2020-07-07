@@ -60,7 +60,7 @@ namespace FoursquareApi
         }
 
         [FunctionName("Venues")]
-        public async Task<IActionResult> Run(
+        public async Task<IActionResult> RunVenues(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
             ILogger log)
         {
@@ -100,5 +100,32 @@ namespace FoursquareApi
 
             return new OkObjectResult(result);
         }
+
+        [FunctionName("VenueDetails")]
+        public async Task<IActionResult> RunVenueDetrails(
+           [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
+           ILogger log)
+        {
+            log.LogInformation("C# HTTP trigger function processed a request.");
+
+            var venueIdQueryParameter = req.Query["venueId"].ToString();
+            if (string.IsNullOrEmpty(venueIdQueryParameter))
+                return new BadRequestObjectResult("Please pass a venue Id parameter");
+
+            VenueDetailsResponse result;
+        
+            try
+            {
+            
+            var response = await _client.GetAsync($"https://api.foursquare.com/v2/venues/{venueIdQueryParameter}?client_id={_clientId}&client_secret={_clientSecret}&v={_v}");
+            result = await response.Content.ReadAsAsync<VenueDetailsResponse>();
+        }
+        catch (Exception exception)
+        {
+            throw exception;
+        }
+
+        return new OkObjectResult(result.Response.VenueDetail);
     }
+}
 }
