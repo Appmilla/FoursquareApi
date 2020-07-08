@@ -125,7 +125,7 @@ namespace FoursquareApi
             throw exception;
         }
 
-        return new OkObjectResult(result.Response.VenueDetail);
+        return new OkObjectResult(result);
     }
 }
 }

@@ -53,7 +53,7 @@ namespace FoursquareApi.Client
         public Contact Contact { get; set; }
 
         [JsonProperty("location")]
-        public Location Location { get; set; }
+        public VenueDetailsLocation Location { get; set; }
 
         [JsonProperty("canonicalUrl")]
         public Uri CanonicalUrl { get; set; }
@@ -115,9 +115,14 @@ namespace FoursquareApi.Client
         [JsonProperty("description")]
         public string Description { get; set; }
 
+        /*
         [JsonProperty("storeId")]
         [JsonConverter(typeof(ParseStringConverter))]
         public long StoreId { get; set; }
+        */
+
+        [JsonProperty("storeId")]
+        public string StoreId { get; set; }
 
         [JsonProperty("page")]
         public Page Page { get; set; }
@@ -592,8 +597,8 @@ namespace FoursquareApi.Client
         public List<HereNowGroup> Groups { get; set; }
     }
 
-    /*
-    public partial class Location
+
+    public partial class VenueDetailsLocation
     {
         [JsonProperty("address")]
         public string Address { get; set; }
@@ -626,6 +631,7 @@ namespace FoursquareApi.Client
         public List<string> FormattedAddress { get; set; }
     }
     
+    /*
     public partial class LabeledLatLng
     {
         [JsonProperty("label")]
