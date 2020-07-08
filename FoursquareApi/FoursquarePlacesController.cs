@@ -102,7 +102,7 @@ namespace FoursquareApi
         }
 
         [FunctionName("VenueDetails")]
-        public async Task<IActionResult> RunVenueDetrails(
+        public async Task<IActionResult> RunVenueDetails(
            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
            ILogger log)
         {
